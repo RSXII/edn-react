@@ -4,6 +4,8 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
 import LogoComponent from "./components/LogoComponent";
 import NavigationComponent from "./components/navigation/NavigationComponent";
+import MobileMenuComponent from "./components/navigation/MobileMenuComponent";
+import Home from "./pages/Home";
 import { Navigation } from "./components/navigation/types";
 
 const navigation: Navigation[] = [
@@ -72,29 +74,7 @@ export default function Example() {
                 <XMarkIcon className="h-6 w-6" aria-hidden="true" />
               </button>
             </div>
-            <div className="mt-6 flow-root">
-              <div className="-my-6 divide-y divide-gray-500/10">
-                <div className="space-y-2 py-6">
-                  {navigation.map((item) => (
-                    <a
-                      key={item.name}
-                      href={item.href}
-                      className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                    >
-                      {item.name}
-                    </a>
-                  ))}
-                </div>
-                <div className="py-6">
-                  <a
-                    href="#"
-                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                  >
-                    Log in
-                  </a>
-                </div>
-              </div>
-            </div>
+            <MobileMenuComponent items={navigation} />
           </Dialog.Panel>
         </Dialog>
       </header>
@@ -119,43 +99,7 @@ export default function Example() {
             className="rounded-3xl shadow-2xl sm:rounded-6xl sm:shadow-3xl max-h-60 sm:max-h-52 xs:max-h-80 mx-auto"
           />
         </div>
-        <div className="mx-auto max-w-2xl py-20 sm:py-20 lg:py-6">
-          <div className="hidden sm:mb-8 sm:flex sm:justify-center">
-            <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
-              Transform your relationship with your outdoor space.{" "}
-              <a href="#" className="font-semibold text-indigo-600">
-                <span className="absolute inset-0" aria-hidden="true" />
-                Our Mission <span aria-hidden="true">&rarr;</span>
-              </a>
-            </div>
-          </div>
-
-          <div className="text-center">
-            <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-              The DIY approach to Professional Landscaping
-            </h1>
-            <p className="mt-6 text-lg leading-8 text-gray-600">
-              We aim to turn each homeowner's unique vision of a dream yard into
-              an attainable reality, step by step. We believe in a personalized,
-              consultative approach that values customer input as much as expert
-              recommendations.
-            </p>
-            <div className="mt-10 flex items-center justify-center gap-x-6">
-              <a
-                href="#"
-                className="rounded-md bg-buttonPrimary px-3.5 py-2.5 text-sm font-semibold text-buttonTextPrimary shadow-sm hover:bg-buttonHover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-              >
-                Get started
-              </a>
-              <a
-                href="#"
-                className="text-sm font-semibold leading-6 text-gray-900"
-              >
-                Learn more <span aria-hidden="true">→</span>
-              </a>
-            </div>
-          </div>
-        </div>
+        <Home />
         <div
           className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
           aria-hidden="true"
