@@ -3,8 +3,10 @@ import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
 import LogoComponent from "./components/LogoComponent";
+import NavigationComponent from "./components/navigation/NavigationComponent";
+import { Navigation } from "./components/navigation/types";
 
-const navigation = [
+const navigation: Navigation[] = [
   { name: "Home", href: "#" },
   { name: "About Us", href: "#" },
   { name: "Plans", href: "#" },
@@ -34,17 +36,7 @@ export default function Example() {
               <Bars3Icon className="h-6 w-6" aria-hidden="true" />
             </button>
           </div>
-          <div className="hidden lg:flex lg:gap-x-12">
-            {navigation.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className="text-sm font-semibold leading-6 text-gray-900"
-              >
-                {item.name}
-              </a>
-            ))}
-          </div>
+          <NavigationComponent items={navigation} />
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
             <a
               href="#"
