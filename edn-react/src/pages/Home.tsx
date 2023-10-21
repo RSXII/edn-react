@@ -1,3 +1,6 @@
+import ButtonPrimary from "../components/button/ButtonPrimary";
+import ButtonSecondary from "../components/button/ButtonSecondary";
+
 export default function Home() {
   return (
     <div className="mx-auto max-w-2xl py-20 sm:py-20 lg:py-6">
@@ -22,15 +25,8 @@ export default function Home() {
           recommendations.
         </p>
         <div className="mt-10 flex items-center justify-center gap-x-6">
-          <a
-            href="#"
-            className="rounded-md bg-buttonPrimary px-3.5 py-2.5 text-sm font-semibold text-buttonTextPrimary shadow-sm hover:bg-buttonHover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-          >
-            Get started
-          </a>
-          <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-            Learn more <span aria-hidden="true">→</span>
-          </a>
+          <ButtonPrimary props={{ text: "Get started", href: "#" }} />
+          <ButtonSecondary props={{ text: "Learn more", href: "#" }} />
         </div>
       </div>
     </div>
