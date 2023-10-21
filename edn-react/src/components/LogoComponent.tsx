@@ -1,6 +1,6 @@
 export default function Logo() {
   return (
-    <a href="#" className="-m-1.5 p-1.5">
+    <a href="#" className="">
       <span className="sr-only">EDN Landscaping</span>
       <svg
         width="94"
