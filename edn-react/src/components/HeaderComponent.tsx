@@ -8,10 +8,10 @@ import MobileMenuComponent from "./navigation/MobileMenuComponent";
 import { Navigation } from "./navigation/types";
 
 const navigation: Navigation[] = [
-  { name: "Home", href: "#" },
-  { name: "About Us", href: "#" },
-  { name: "Plans", href: "#" },
-  { name: "Company", href: "#" },
+  { name: "Home", href: "/" },
+  { name: "About Us", href: "/about" },
+  { name: "Plans", href: "/plans" },
+  { name: "Company", href: "/company" },
 ];
 
 export default function HeaderComponent() {
