@@ -3,7 +3,7 @@ import { Navigation } from "./types";
 export default function MobileMenu({ items }: { items: Navigation[] }) {
   return (
     <div className="mt-6 flow-root">
-      <div className="-my-6 divide-y divide-gray-500/10">
+      <div className="-my-6 divide-y divide-white">
         <div className="space-y-2 py-6">
           {items.map((item) => (
             <a
