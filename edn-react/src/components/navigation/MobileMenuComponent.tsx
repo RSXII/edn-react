@@ -1,6 +1,8 @@
+import { useLocation } from "react-router-dom";
 import { Navigation } from "./types";
 
 export default function MobileMenu({ items }: { items: Navigation[] }) {
+  const location = useLocation();
   return (
     <div className="mt-6 flow-root">
       <div className="-my-6 divide-y divide-white">
@@ -9,7 +11,11 @@ export default function MobileMenu({ items }: { items: Navigation[] }) {
             <a
               key={item.name}
               href={item.href}
-              className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-emerald-300"
+              className={`-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 ${
+                location.pathname === item.href
+                  ? "text-teal-800 font-extrabold"
+                  : "text-gray-900"
+              } hover:bg-emerald-300`}
             >
               {item.name}
             </a>
