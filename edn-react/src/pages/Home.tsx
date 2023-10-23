@@ -38,7 +38,58 @@ export default function Home() {
             <ButtonSecondary props={{ text: "Learn more", href: "#" }} />
           </div>
         </div>
+        <div></div>
       </div>
+      <div>
+        <h2 className="text-5xl mt-6 leading-8 text-gray-600">
+          Make it stand out.
+        </h2>
+        <div className="flex flex-col md:flex-row justify-center mt-6 text-lg leading-8 text-gray-600">
+          <div className="mt-6 px-4 text-lg leading-8">
+            <h2 className="text-4xl mb-6">Dream it.</h2>
+            <img
+              src="https://images.squarespace-cdn.com/content/v1/650f36695ef4386d769fcf46/1696096447926-18WR8B4B76C0MPUM02J8/image-asset.jpeg?format=1000w"
+              alt=""
+            />
+            <p>
+              Every journey starts with a vision. Picture your ideal outdoor
+              space: the vibrant colors, the inviting pathways, the sounds of
+              nature. Whether it's a serene oasis, a lively entertainment hub,
+              or a family-friendly retreat, your dream is the blueprint for what
+              lies ahead
+            </p>
+          </div>
+          <div className="mt-6 px-4 text-lg leading-8">
+            <h2 className="text-4xl mb-6">Grow it.</h2>
+            <img
+              src="https://images.squarespace-cdn.com/content/v1/650f36695ef4386d769fcf46/b9fbadf4-827e-4f4d-b48a-d6569e8731b3/IMG_2761.JPG?format=1000w"
+              alt=""
+            />
+            <p>
+              Turning dreams into reality is a journey of care, expertise, and
+              growth. With the right plan, tools, and support, your outdoor
+              space will evolve, blooming in sync with your vision. As you
+              cultivate, nurture, and tend to every corner, you'll witness the
+              transformation you've always imagined.
+            </p>
+          </div>
+          <div className="mt-6 px-4 text-lg leading-8">
+            <h2 className="text-4xl mb-6">Love it.</h2>
+            <img
+              src="https://images.squarespace-cdn.com/content/v1/650f36695ef4386d769fcf46/1696097159577-NWMXS7FJTORMI5LY4ZD6/image-asset.jpeg?format=1000w"
+              alt=""
+            />
+            <p>
+              The joy of creation is in seeing, feeling, and living it every
+              day. Your outdoor space is a testament to your vision, dedication,
+              and love. With every sunrise that illuminates your garden and
+              every sunset that casts a golden hue, you'll fall in love with
+              your creation, over and over again.
+            </p>
+          </div>
+        </div>
+      </div>
+
       <GradientBGBottom />
     </div>
   );
