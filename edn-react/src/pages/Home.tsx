@@ -1,6 +1,11 @@
 import { ButtonPrimary, ButtonSecondary } from "../components/button/index";
 import { GradientBGTop, GradientBGBottom } from "../components/gradient/index";
-import { Statement, statements } from "../components/statements/index";
+import {
+  ImageStatement,
+  ListStatement,
+  imageStatementItems,
+  listStatementItems,
+} from "../components/statements/index";
 
 export default function Home() {
   return (
@@ -10,7 +15,7 @@ export default function Home() {
         <img
           src="https://images.squarespace-cdn.com/content/v1/650f36695ef4386d769fcf46/1696640265091-OQA379C7JSSCL2ELQWKO/image-asset.jpeg"
           alt="House Garden"
-          className="rounded-3xl shadow-2xl sm:rounded-6xl sm:shadow-3xl max-h-60 sm:max-h-52 xs:max-h-80 mx-auto"
+          className="rounded-3xl shadow-2xl sm:rounded-6xl sm:shadow-3xl max-h-60 sm:max-h-80 xs:max-h-52 mx-auto lg:max-h-96"
         />
       </div>
       <div className="mx-auto max-w-2xl py-20 sm:py-20 lg:py-6">
@@ -46,9 +51,14 @@ export default function Home() {
           Make it stand out.
         </h2>
         <div className="flex flex-col md:flex-row justify-center mt-6 text-lg leading-8 text-gray-600">
-          {statements.map((statement) => (
-            <Statement props={statement} />
+          {imageStatementItems.map((statement) => (
+            <ImageStatement props={statement} />
           ))}
+        </div>
+        <div className="flex flex-col md:flex-row justify-center mt-6 text-lg leading-8 text-gray-600">
+          {listStatementItems.map((statement) => {
+            return <ListStatement props={statement} />;
+          })}
         </div>
       </div>
 
