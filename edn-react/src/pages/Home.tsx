@@ -1,5 +1,6 @@
 import { ButtonPrimary, ButtonSecondary } from "../components/button/index";
 import { GradientBGTop, GradientBGBottom } from "../components/gradient/index";
+import { Statement, statements } from "../components/statements/index";
 
 export default function Home() {
   return (
@@ -38,7 +39,19 @@ export default function Home() {
             <ButtonSecondary props={{ text: "Learn more", href: "#" }} />
           </div>
         </div>
+        <div></div>
       </div>
+      <div>
+        <h2 className="text-5xl mt-6 leading-8 text-gray-600">
+          Make it stand out.
+        </h2>
+        <div className="flex flex-col md:flex-row justify-center mt-6 text-lg leading-8 text-gray-600">
+          {statements.map((statement) => (
+            <Statement props={statement} />
+          ))}
+        </div>
+      </div>
+
       <GradientBGBottom />
     </div>
   );
