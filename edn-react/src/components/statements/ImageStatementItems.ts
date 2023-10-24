@@ -1,4 +1,4 @@
-const statements = [
+const imageStatements = [
   {
     header: "Dream it.",
     body: `Every journey starts with a vision. Picture your ideal outdoor
@@ -31,4 +31,4 @@ const statements = [
   },
 ];
 
-export default statements;
+export default imageStatements;

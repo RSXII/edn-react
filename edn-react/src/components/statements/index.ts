@@ -1,4 +1,11 @@
-import Statement from "./Statement";
-import statements from "./StatementsList";
+import ImageStatement from "./ImageStatement";
+import ListStatement from "./ListStatement";
+import imageStatementItems from "./ImageStatementItems";
+import listStatementItems from "./ListStatementItems";
 
-export { Statement, statements };
+export {
+  ImageStatement,
+  ListStatement,
+  imageStatementItems,
+  listStatementItems,
+};
