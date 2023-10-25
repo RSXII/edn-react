@@ -24,7 +24,7 @@ const router = createBrowserRouter(
   )
 );
 
-export default function Example() {
+export default function App() {
   return (
     <div className="bg-backgroundColor">
       <BrowserRouter>

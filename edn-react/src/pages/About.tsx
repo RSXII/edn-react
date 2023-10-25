@@ -1,5 +1,6 @@
 import { ButtonPrimary, ButtonSecondary } from "../components/button/index";
 import { GradientBGTop, GradientBGBottom } from "../components/gradient/index";
+import { paragraphs } from "../data/about.json";
 
 export default function About() {
   return (
@@ -11,37 +12,13 @@ export default function About() {
           <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
             Our Origin Story…
           </h1>
-          <p className="mt-6 text-lg leading-8 text-gray-600">
-            In the heart of a vibrant yard, where the chorus of nature
-            harmonizes with the design's aesthetics, the idea of Edn took root.
-            Our founder, having been born into a family with deep ties to the
-            horticultural industry, embarked on a personal journey to revamp his
-            own outdoor space. The entire process, filled with nuanced
-            decisions, expertise, and intricate knowledge, came as second nature
-            to him.
-          </p>
-          <p className="mt-6 text-lg leading-8 text-gray-600">
-            However, a realization struck - for many, the world of landscaping
-            is a complex maze, daunting and often unapproachable. What about
-            those who don't have the benefit of industry insights passed down
-            through generations? Those who dream of beautiful, functional
-            outdoor spaces but are held back by the sheer intricacy and
-            perceived inaccessibility of it all?
-          </p>
-          <p className="mt-6 text-lg leading-8 text-gray-600">
-            Driven by this revelation, Edn was born. A platform aimed to bridge
-            this knowledge gap, making high-quality landscaping accessible to
-            all. At Edn, we're not just about designing outdoor spaces; we're
-            about democratizing the landscaping process. We believe that every
-            individual deserves a yard that mirrors their aspirations,
-            irrespective of their background in the field.
-          </p>
-          <p className="mt-6 text-lg leading-8 text-gray-600">
-            Today, Edn stands as a testament to that belief, transforming yards
-            across the region and helping countless individuals realize their
-            dream outdoor sanctuaries. Join us on this journey, and let's craft
-            your unique story together.
-          </p>
+          {paragraphs.map((text: string, index: number) => {
+            return (
+              <p key={index} className="mt-6 text-lg leading-8 text-gray-600">
+                {text}
+              </p>
+            );
+          })}
           <div className="mt-10 flex items-center justify-center gap-x-6">
             <ButtonPrimary props={{ text: "Get started", href: "#" }} />
             <ButtonSecondary props={{ text: "Learn more", href: "#" }} />
