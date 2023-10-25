@@ -5,59 +5,68 @@
       "list": [
         "Initial site evaluation, understanding client's vision and needs.",
         "Providing insights on soil quality, sunlight patterns, and existing plant health."
-      ]
+      ],
+      "id": 1
     },
     {
       "title": "Custom Design Plans",
       "list": [
         "Tailored yard designs based on the client's vision and property characteristics.",
         "Offering different styles and themes based on geographical regions and personal preferences."
-      ]
+      ],
+      "id": 2
     },
     {
       "title": "Curated Plant Recommendations",
       "list": [
         "Custom plant lists tailored to each individual yard and its specific conditions.",
         "Seasonal suggestions at the beginning of each year to keep the yard vibrant and thriving."
-      ]
+      ],
+      "id": 3
     },
     {
       "title": "Incremental Yard Development Guidance",
       "list": [
         "Offering phased plans to transform yards over time, aligning with the client's budget and pace.",
         "Recommendations on which sections of the yard to tackle first for maximum impact."
-      ]
+      ],
+      "id": 4
     },
     {
       "title": "Maintenance and Care Tips",
       "list": [
         "Regular guidance on how to take care of the plants, trees, and other elements of the yard.",
         "Seasonal care tips, watering schedules, and pest control advice."
-      ]
+      ],
+      "id": 5
     },
     {
       "title": "Exclusive Partnerships and Discounts",
       "list": [
         "Collaborations with local nurseries and gardening centers for plant delivery or purchases.",
         "Special deals or discounts for Edn subscribers, enhancing the value proposition."
-      ]
+      ],
+      "id": 6
     }
   ],
   "imageStatementItems": [
     {
       "header": "Dream it.",
       "body": "Every journey starts with a vision. Picture your ideal outdoor space: the vibrant colors, the inviting pathways, the sounds of nature. Whether it's a serene oasis, a lively entertainment hub, or a family-friendly retreat, your dream is the blueprint for what lies ahead",
-      "imageSrc": "https://images.squarespace-cdn.com/content/v1/650f36695ef4386d769fcf46/1696096447926-18WR8B4B76C0MPUM02J8/image-asset.jpeg?format=1000w"
+      "imageSrc": "https://images.squarespace-cdn.com/content/v1/650f36695ef4386d769fcf46/1696096447926-18WR8B4B76C0MPUM02J8/image-asset.jpeg?format=1000w",
+      "id": 1
     },
     {
       "header": "Grow it.",
       "body": "Turning dreams into reality is a journey of care, expertise, and growth. With the right plan, tools, and support, your outdoor space will evolve, blooming in sync with your vision. As you cultivate, nurture, and tend to every corner, you'll witness the transformation you've always imagined.",
-      "imageSrc": "https://images.squarespace-cdn.com/content/v1/650f36695ef4386d769fcf46/b9fbadf4-827e-4f4d-b48a-d6569e8731b3/IMG_2761.JPG?format=1000w"
+      "imageSrc": "https://images.squarespace-cdn.com/content/v1/650f36695ef4386d769fcf46/b9fbadf4-827e-4f4d-b48a-d6569e8731b3/IMG_2761.JPG?format=1000w",
+      "id": 2
     },
     {
       "header": "Love it.",
       "body": "The joy of creation is in seeing, feeling, and living it every day. Your outdoor space is a testament to your vision, dedication, and love. With every sunrise that illuminates your garden and every sunset that casts a golden hue, you'll fall in love with your creation, over and over again.",
-      "imageSrc": "https://images.squarespace-cdn.com/content/v1/650f36695ef4386d769fcf46/1696097159577-NWMXS7FJTORMI5LY4ZD6/image-asset.jpeg?format=1000w"
+      "imageSrc": "https://images.squarespace-cdn.com/content/v1/650f36695ef4386d769fcf46/1696097159577-NWMXS7FJTORMI5LY4ZD6/image-asset.jpeg?format=1000w",
+      "id": 3
     }
   ]
 }
