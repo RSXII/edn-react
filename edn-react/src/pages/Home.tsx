@@ -4,8 +4,9 @@ import {
   ImageStatement,
   ListStatement,
   imageStatementItems,
-  listStatementItems,
 } from "../components/statements/index";
+import { ListStatementProps } from "../components/statements/types";
+import { listStatementItems } from "../data/home.json";
 
 export default function Home() {
   return (
@@ -55,10 +56,12 @@ export default function Home() {
             <ImageStatement props={statement} />
           ))}
         </div>
-        <div className="flex flex-col md:flex-row justify-center mt-6 text-lg leading-8 text-gray-600">
-          {listStatementItems.map((statement) => {
-            return <ListStatement props={statement} />;
-          })}
+        <div className="grid grid-cols-1 md:grid-cols-3 justify-center mt-6 text-lg leading-8 text-gray-600">
+          {listStatementItems.map(
+            (statement: ListStatementProps, index: number) => {
+              return <ListStatement key={index} props={statement} />;
+            }
+          )}
         </div>
       </div>
 
