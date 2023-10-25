@@ -1,12 +1,11 @@
 import { ButtonPrimary, ButtonSecondary } from "../components/button/index";
 import { GradientBGTop, GradientBGBottom } from "../components/gradient/index";
+import { ImageStatement, ListStatement } from "../components/statements/index";
 import {
-  ImageStatement,
-  ListStatement,
-  imageStatementItems,
-} from "../components/statements/index";
-import { ListStatementProps } from "../components/statements/types";
-import { listStatementItems } from "../data/home.json";
+  ImageStatementProps,
+  ListStatementProps,
+} from "../components/statements/types";
+import { listStatementItems, imageStatementItems } from "../data/home.json";
 
 export default function Home() {
   return (
@@ -52,19 +51,16 @@ export default function Home() {
           Make it stand out.
         </h2>
         <div className="flex flex-col md:flex-row justify-center mt-6 text-lg leading-8 text-gray-600">
-          {imageStatementItems.map((statement) => (
-            <ImageStatement props={statement} />
+          {imageStatementItems.map((statement: ImageStatementProps) => (
+            <ImageStatement key={statement.id} props={statement} />
           ))}
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 justify-center mt-6 text-lg leading-8 text-gray-600">
-          {listStatementItems.map(
-            (statement: ListStatementProps, index: number) => {
-              return <ListStatement key={index} props={statement} />;
-            }
-          )}
+          {listStatementItems.map((statement: ListStatementProps) => {
+            return <ListStatement key={statement.id} props={statement} />;
+          })}
         </div>
       </div>
-
       <GradientBGBottom />
     </div>
   );
