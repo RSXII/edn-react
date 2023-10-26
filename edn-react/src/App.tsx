@@ -5,6 +5,7 @@ import HeaderComponent from "./components/HeaderComponent";
 import About from "./pages/About";
 import Plans from "./pages/Plans";
 import Company from "./pages/Company";
+import FooterComponent from "./components/navigation/FooterComponent";
 
 export default function App() {
   return (
@@ -20,6 +21,7 @@ export default function App() {
           </Routes>
         </main>
       </BrowserRouter>
+      <FooterComponent />
     </div>
   );
 }
