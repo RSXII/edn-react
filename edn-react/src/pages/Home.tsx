@@ -1,5 +1,6 @@
 import { ButtonPrimary, ButtonSecondary } from "../components/button/index";
 import { GradientBGTop, GradientBGBottom } from "../components/gradient/index";
+import PlanServiceComponent from "../components/plans/ServiceComponent";
 import { ImageStatement, ListStatement } from "../components/statements/index";
 import {
   ImageStatementProps,
@@ -60,6 +61,7 @@ export default function Home() {
             return <ListStatement key={statement.id} props={statement} />;
           })}
         </div>
+        <PlanServiceComponent />
       </div>
       <GradientBGBottom />
     </div>

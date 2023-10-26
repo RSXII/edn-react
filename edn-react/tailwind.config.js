@@ -9,6 +9,9 @@ export default {
         buttonTextPrimary: "#FFFFFF",
         backgroundColor: "#bbf7d0",
       },
+      transitionProperty: {
+        height: "height",
+      },
     },
   },
   plugins: [],
