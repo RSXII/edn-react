@@ -14,6 +14,7 @@ const navigation: Navigation[] = [
   { name: "Plans", href: "/plans", protected: false },
   { name: "Company", href: "/company", protected: false },
   { name: "Admin", href: "/admin", protected: true },
+  { name: "Profile", href: "/profile", protected: true },
 ];
 
 function LogIn() {
