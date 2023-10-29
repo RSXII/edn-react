@@ -6,16 +6,40 @@ import LogoComponent from "./LogoComponent";
 import NavigationComponent from "./navigation/NavigationComponent";
 import MobileMenuComponent from "./navigation/MobileMenuComponent";
 import { Navigation } from "./navigation/types";
+import { SignInButton, SignOutButton, useAuth } from "@clerk/clerk-react";
 
 const navigation: Navigation[] = [
-  { name: "Home", href: "/" },
-  { name: "About Us", href: "/about" },
-  { name: "Plans", href: "/plans" },
-  { name: "Company", href: "/company" },
+  { name: "Home", href: "/", protected: false },
+  { name: "About Us", href: "/about", protected: false },
+  { name: "Plans", href: "/plans", protected: false },
+  { name: "Company", href: "/company", protected: false },
+  { name: "Admin", href: "/admin", protected: true },
+  { name: "Profile", href: "/profile", protected: true },
 ];
+
+function LogIn() {
+  return (
+    <SignInButton>
+    <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
+      Log in <span aria-hidden="true">&rarr;</span>
+    </a>
+    </SignInButton>
+  );
+}
+function LogOut() {
+  return (
+    <SignOutButton>
+    <a href="/" className="text-sm font-semibold leading-6 text-gray-900">
+      Log out <span aria-hidden="true">&rarr;</span>
+    </a>
+    </SignOutButton>
+  );
+}
 
 export default function HeaderComponent() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { isLoaded, userId } = useAuth();
+  if (!isLoaded) return null;
 
   return (
     <header className="absolute inset-x-0 top-0 z-50">
@@ -38,9 +62,7 @@ export default function HeaderComponent() {
         </div>
         <NavigationComponent items={navigation} />
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-            Log in <span aria-hidden="true">&rarr;</span>
-          </a>
+          {userId ? <LogOut /> : <LogIn />}
         </div>
       </nav>
       <Dialog

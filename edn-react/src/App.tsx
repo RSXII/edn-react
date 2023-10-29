@@ -1,16 +1,22 @@
-import { Route, Routes, BrowserRouter } from "react-router-dom";
+import { Route, Routes, BrowserRouter, useNavigate } from "react-router-dom";
 
-import Home from "./pages/Home";
+import { Home, About, Plans, Company, Profile } from "./pages";
 import HeaderComponent from "./components/HeaderComponent";
-import About from "./pages/About";
-import Plans from "./pages/Plans";
-import Company from "./pages/Company";
+import Authentication from "./pages/Authentication";
 import FooterComponent from "./components/navigation/FooterComponent";
+import { clerkPubKey } from "./config";
+import { ClerkProvider, SignUp } from "@clerk/clerk-react";
+import PrivateRoute from "./components/authentication/PrivateRoute";
 
-export default function App() {
+function ClerkProviderWithRoutes() {
+  const navigate = useNavigate();
+
   return (
     <div className="bg-backgroundColor">
-      <BrowserRouter>
+      <ClerkProvider
+        publishableKey={clerkPubKey}
+        navigate={(to) => navigate(to)}
+      >
         <HeaderComponent />
         <main>
           <Routes>
@@ -18,10 +24,27 @@ export default function App() {
             <Route path="/about" element={<About />} />
             <Route path="/plans" element={<Plans />} />
             <Route path="/company" element={<Company />} />
+            <Route
+              path="/profile"
+              element={<PrivateRoute element={<Profile />} fallback="/" />}
+            />
+            <Route path="/signin" element={<Authentication />} />
+            <Route
+              path="/sign-up/*"
+              element={<SignUp routing="path" path="/sign-up" />}
+            />
           </Routes>
         </main>
-      </BrowserRouter>
+      </ClerkProvider>
       <FooterComponent />
     </div>
+  );
+}
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <ClerkProviderWithRoutes />
+    </BrowserRouter>
   );
 }
