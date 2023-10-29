@@ -13,25 +13,24 @@ const navigation: Navigation[] = [
   { name: "About Us", href: "/about", protected: false },
   { name: "Plans", href: "/plans", protected: false },
   { name: "Company", href: "/company", protected: false },
-  { name: "Admin", href: "/admin", protected: true },
   { name: "Profile", href: "/profile", protected: true },
 ];
 
 function LogIn() {
   return (
     <SignInButton>
-    <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-      Log in <span aria-hidden="true">&rarr;</span>
-    </a>
+      <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
+        Log in <span aria-hidden="true">&rarr;</span>
+      </a>
     </SignInButton>
   );
 }
 function LogOut() {
   return (
     <SignOutButton>
-    <a href="/" className="text-sm font-semibold leading-6 text-gray-900">
-      Log out <span aria-hidden="true">&rarr;</span>
-    </a>
+      <a href="/" className="text-sm font-semibold leading-6 text-gray-900">
+        Log out <span aria-hidden="true">&rarr;</span>
+      </a>
     </SignOutButton>
   );
 }
