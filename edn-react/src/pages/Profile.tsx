@@ -1,4 +1,3 @@
-import { ButtonPrimary, ButtonSecondary } from "../components/button/index";
 import { GradientBGTop, GradientBGBottom } from "../components/gradient/index";
 import { UserProfile } from "@clerk/clerk-react";
 
