@@ -1,10 +1,8 @@
 import { Route, Routes, BrowserRouter, useNavigate } from "react-router-dom";
 
-import Home from "./pages/Home";
+import { Home, About, Plans, Company } from "./pages";
 import HeaderComponent from "./components/HeaderComponent";
-import About from "./pages/About";
-import Plans from "./pages/Plans";
-import Company from "./pages/Company";
+import Authentication from "./pages/Authentication";
 import FooterComponent from "./components/navigation/FooterComponent";
 import { clerkPubKey } from './config';
 import {
@@ -12,26 +10,17 @@ import {
   SignedIn,
   SignedOut,
   RedirectToSignIn,
-  SignIn,
   SignUp,
-  UserButton,
 } from "@clerk/clerk-react";
+import Admin from "./pages/Admin";
 
-function ProtectedPage() {
-  return (
-    <>
-      <h1>Protected page</h1>
-      <UserButton />
-    </>
-  );
-}
 function ClerkProviderWithRoutes() {
   const navigate = useNavigate();
  
   return (
     <div className="bg-backgroundColor">
       
-      <HeaderComponent />
+      
     <ClerkProvider
       publishableKey={clerkPubKey}
       navigate={(to) => navigate(to)}
@@ -44,8 +33,8 @@ function ClerkProviderWithRoutes() {
         <Route path="/plans" element={<Plans />} />
         <Route path="/company" element={<Company />} />
         <Route
-          path="/sign-in/*"
-          element={<SignIn routing="path" path="/sign-in" />}
+          path="/signin"
+          element={<Authentication />}
         />
         <Route
           path="/sign-up/*"
@@ -56,7 +45,7 @@ function ClerkProviderWithRoutes() {
           element={
           <>
             <SignedIn>
-              <ProtectedPage />
+              <Admin />
             </SignedIn>
              <SignedOut>
               <RedirectToSignIn />
