@@ -1,5 +1,5 @@
-import { ButtonPrimary, ButtonSecondary } from "../components/button/index";
 import { GradientBGTop, GradientBGBottom } from "../components/gradient/index";
+import { UserProfile } from "@clerk/clerk-react";
 
 export default function Profile() {
   return (
@@ -12,8 +12,16 @@ export default function Profile() {
             Profile
           </h1>
           <div className="mt-10 flex items-center justify-center gap-x-6">
-            <ButtonPrimary props={{ text: "Get started", href: "#" }} />
-            <ButtonSecondary props={{ text: "Learn more", href: "#" }} />
+            {/* <ButtonPrimary props={{ text: "Get started", href: "#" }} />
+            <ButtonSecondary props={{ text: "Learn more", href: "#" }} /> */}
+            <UserProfile
+              appearance={{
+                elements: {
+                  card: "bg-transparent",
+                  rootBox: "bg-transparent",
+                },
+              }}
+            />
           </div>
         </div>
       </div>
