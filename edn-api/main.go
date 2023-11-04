@@ -10,6 +10,7 @@ import (
 )
 
 func main() {
+    
     database.InitDB()
 
     r := gin.Default()
