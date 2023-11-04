@@ -17,11 +17,13 @@ func NewStatementRepository(db *sql.DB) *StatementRepository {
 
 func (r *StatementRepository) GetListStatements() ([]*models.ListStatementItem) {
 	rows, err := r.DB.Query("SELECT * FROM list_statement_items")
+
 	if err != nil {
 		panic(err)
 	}
-	defer rows.Close()
 
+	defer rows.Close()
+	
 	var listStatements []*models.ListStatementItem
 	
 	for rows.Next() {
@@ -32,7 +34,7 @@ func (r *StatementRepository) GetListStatements() ([]*models.ListStatementItem) 
 		}
 
 		listStatements = append(listStatements, &listStatement)
-		
+
 	}
 
 	return listStatements
