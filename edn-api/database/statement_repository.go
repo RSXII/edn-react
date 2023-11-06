@@ -17,9 +17,18 @@ func NewStatementRepository(db *sql.DB) *StatementRepository {
 	}
 }
 
-func (r *StatementRepository) GetListStatements() ([]*models.ListStatementItem) {
 
-	rows, err := r.DB.Query("SELECT * FROM list_statement_items")
+
+func (r *StatementRepository) GetFullListStatements() (models.ListStatement) {
+
+	queryString := `SELECT ls.id 
+	AS list_statements_id, ls.title, lsi.value 
+	FROM list_statements ls 
+	LEFT JOIN list_statement_items lsi 
+	ON ls.id = lsi.list_statement_id 
+	WHERE ls.id = 1;`
+
+	rows, err := r.DB.Query(queryString)
 
 	if err != nil {
 		panic(err)
@@ -27,22 +36,27 @@ func (r *StatementRepository) GetListStatements() ([]*models.ListStatementItem) 
 
 	defer rows.Close()
 
-	var listStatements []*models.ListStatementItem
+	var listStatement models.ListStatement
 	
 	for rows.Next() {
-		
-		var listStatement models.ListStatementItem
+		var id int
+        var title string
+        var value sql.NullString
 
-		err := rows.Scan(&listStatement.Id, &listStatement.Title, &listStatement.List)
+		err := rows.Scan(&id, &title, &value)
 
 		if err != nil {
 			panic(err)
 		}
 
-		listStatements = append(listStatements, &listStatement)
+		listStatement.Id = id
+		listStatement.Title = title
+
+		if value.Valid {
+			listStatement.List = append(listStatement.List, value.String)
+		}
 
 	}
 
-	return listStatements
-
+	return listStatement
 }

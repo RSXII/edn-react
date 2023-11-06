@@ -10,8 +10,8 @@ func GetListItems(db *database.StatementRepository) gin.HandlerFunc {
 
 	return func(c *gin.Context) {
 
-		listStatements := db.GetListStatements()
-		
+		listStatements := db.GetFullListStatements()
+
 		c.JSON(200, listStatements)
 	}
 }
