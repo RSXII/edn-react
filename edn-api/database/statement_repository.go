@@ -17,8 +17,6 @@ func NewStatementRepository(db *sql.DB) *StatementRepository {
 	}
 }
 
-
-
 func (r *StatementRepository) GetListStatementById(id string) (models.ListStatement, error) {
 
 	queryString := `SELECT ls.id 
@@ -33,6 +31,7 @@ func (r *StatementRepository) GetListStatementById(id string) (models.ListStatem
 	if err != nil {
 		panic(err)
 	}
+
 	defer stmt.Close()
 
 
@@ -82,6 +81,7 @@ func (r *StatementRepository) GetAllListStatements() ([]models.ListStatement, er
 	if err != nil {
 		panic(err)
 	}
+
 	defer stmt.Close()
 
 	rows, err := stmt.Query()
@@ -92,7 +92,7 @@ func (r *StatementRepository) GetAllListStatements() ([]models.ListStatement, er
 
 	defer rows.Close()
 
-	var listStatements []models.ListStatement
+	var listStatementMap =  make(map[int]models.ListStatement)
 
 	for rows.Next() {
 		var id int
@@ -105,15 +105,27 @@ func (r *StatementRepository) GetAllListStatements() ([]models.ListStatement, er
 			panic(err)
 		}
 
-		var listStatement models.ListStatement
-		listStatement.Id = id
-		listStatement.Title = title
+		listStatement, ok := listStatementMap[id]
+
+		if !ok {
+			listStatement = models.ListStatement{
+				Id: id,
+				Title: title,
+			}
+		}
 
 		if value.Valid {
 			listStatement.List = append(listStatement.List, value.String)
 		}
 
-		listStatements = append(listStatements, listStatement)
+		listStatementMap[id] = listStatement
+
+	}
+
+	var listStatements []models.ListStatement
+
+	for _, listStatments := range listStatementMap {
+		listStatements = append(listStatements, listStatments)
 	}
 
 	return listStatements, nil
