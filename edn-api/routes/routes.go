@@ -8,9 +8,10 @@ import (
 )
 
 func InitializeRoutes(r *gin.Engine, db *database.StatementRepository) {
-	
+
 	api := r.Group("/api") 
 	{
-		api.GET("/list", handlers.GetListItems(db))	
+		api.GET("/getListStatement/:id", handlers.GetListStatementById(db))
+		api.GET("/getAllListStatements", handlers.GetAllListStatements(db))
 	}
 }
