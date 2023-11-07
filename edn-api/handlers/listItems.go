@@ -2,6 +2,7 @@ package handlers
 
 import (
 	"ednAPI/database"
+	"fmt"
 
 	"github.com/gin-gonic/gin"
 )
@@ -14,7 +15,7 @@ func GetListStatementById(db *database.StatementRepository) gin.HandlerFunc {
 		listStatements, error := db.GetListStatementById(id)
 
 		if error != nil {
-			panic(error)
+			fmt.Printf("Error: %v", error)
 		}
 
 		c.JSON(200, listStatements)
@@ -28,7 +29,7 @@ func GetAllListStatements(db *database.StatementRepository) gin.HandlerFunc {
 		listStatements, error := db.GetAllListStatements()
 
 		if error != nil {
-			panic(error)
+			fmt.Printf("Error: %v", error)
 		}
 
 		c.JSON(200, listStatements)
