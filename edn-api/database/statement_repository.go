@@ -3,6 +3,7 @@ package database
 import (
 	"database/sql"
 	"ednAPI/models"
+	"fmt"
 )
 
 type StatementRepository struct {
@@ -29,7 +30,7 @@ func (r *StatementRepository) GetListStatementById(id string) (models.ListStatem
 	stmt, err := r.DB.Prepare(queryString)
 
 	if err != nil {
-		panic(err)
+		fmt.Printf("Error: %v", err)
 	}
 
 	defer stmt.Close()
@@ -38,7 +39,7 @@ func (r *StatementRepository) GetListStatementById(id string) (models.ListStatem
 	rows, err := stmt.Query(id)
 
 	if err != nil {
-		panic(err)
+		fmt.Printf("Error: %v", err)
 	}
 
 	defer rows.Close()
@@ -53,7 +54,7 @@ func (r *StatementRepository) GetListStatementById(id string) (models.ListStatem
 		err := rows.Scan(&id, &title, &value)
 
 		if err != nil {
-			panic(err)
+			fmt.Printf("Error: %v", err)
 		}
 
 		listStatement.Id = id
@@ -79,7 +80,7 @@ func (r *StatementRepository) GetAllListStatements() ([]models.ListStatement, er
 	stmt, err := r.DB.Prepare(queryString)
 
 	if err != nil {
-		panic(err)
+		fmt.Printf("Error: %v", err)
 	}
 
 	defer stmt.Close()
@@ -87,7 +88,7 @@ func (r *StatementRepository) GetAllListStatements() ([]models.ListStatement, er
 	rows, err := stmt.Query()
 
 	if err != nil {
-		panic(err)
+		fmt.Printf("Error: %v", err)
 	}
 
 	defer rows.Close()
@@ -102,7 +103,7 @@ func (r *StatementRepository) GetAllListStatements() ([]models.ListStatement, er
 		err := rows.Scan(&id, &title, &value)
 
 		if err != nil {
-			panic(err)
+			fmt.Printf("Error: %v", err)
 		}
 
 		listStatement, ok := listStatementMap[id]

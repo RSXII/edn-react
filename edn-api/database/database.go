@@ -3,7 +3,7 @@ package database
 import (
 	"database/sql"
 	"ednAPI/config"
-	"log"
+	"fmt"
 	"os"
 
 	_ "github.com/go-sql-driver/mysql"
@@ -19,7 +19,7 @@ func InitDB() {
 
     if err != nil {
         
-        log.Fatalf("failed to connect: %v", err)
+        fmt.Printf("failed to connect: %v", err)
     }
 
     DB = db

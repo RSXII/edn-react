@@ -1,6 +1,7 @@
 package config
 
 import (
+	"fmt"
 	"os"
 
 	"github.com/joho/godotenv"
@@ -15,7 +16,7 @@ func LoadEnvironmentVariables() {
 
 		if err != nil {
 			
-			panic("failed to load env")
+			fmt.Printf("Error loading .env file")
 		}
 	}
 }
