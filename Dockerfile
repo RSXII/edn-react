@@ -1,31 +1,29 @@
-# Start from a Debian-based slim Go image for smaller final size
-FROM golang:1.18-buster as builder
+# Use the official Go image as the base image
+FROM golang:1.20
 
-# Set the Current Working Directory inside the container
-WORKDIR /edn-api
+# Set the working directory
+WORKDIR /app
 
-# Copy go mod and sum files
-COPY go.mod go.sum ./
-
-# Download all dependencies. Dependencies will be cached if the go.mod and go.sum files are not changed
-RUN go mod download
-
-# Copy the source from the current directory to the Working Directory inside the container
+# Copy the entire project into the container
 COPY . .
 
-# Build the Go app
-RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o main .
+# Enable Go modules
+ENV GO111MODULE=on
 
-# Start a new stage from scratch for a smaller image size
-FROM alpine:latest
+# Set the GOPROXY environment variable (optional but recommended)
+ENV GOPROXY=https://proxy.golang.org,direct
 
-RUN apk --no-cache add ca-certificates
+# Copy the dependencies file to the working directory
+COPY go.mod go.sum ./
 
-# Copy the Pre-built binary file from the previous stage
-COPY --from=builder /edn-api/main .
+# Install project dependencies using go mod
+RUN go mod download
 
-# Expose port 8080 to the outside world
+# Build the Go application
+RUN go build -o main
+
+# Expose the port your Go application listens on (if any)
 EXPOSE 8080
 
-# Command to run the executable
+# Define the command to run your Go application
 CMD ["./main"]
