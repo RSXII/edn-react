@@ -22,7 +22,7 @@ FROM alpine:latest
 RUN apk --no-cache add ca-certificates
 
 # Copy the Pre-built binary file from the previous stage
-COPY --from=builder /app/main .
+COPY --from=builder /edn-api/main .
 
 # Expose port 8080 to the outside world
 EXPOSE 8080
