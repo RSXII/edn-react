@@ -2,7 +2,7 @@
 FROM golang:1.20
 
 # Set the working directory
-WORKDIR /app
+WORKDIR /edn-api
 
 # Copy the entire project into the container
 COPY . .
