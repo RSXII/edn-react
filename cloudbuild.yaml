@@ -1,0 +1,14 @@
+steps:
+  - name: "gcr.io/cloud-builders/gcloud"
+    dir: "edn-api"
+    args: ["builds", "submit", "--tag=gcr.io/$PROJECT_ID/edn-api"]
+  - name: "gcr.io/cloud-builders/gcloud"
+    dir: "edn-api"
+    args:
+      [
+        "run",
+        "deploy",
+        "edn-api-service",
+        "--image=gcr.io/$PROJECT_ID/edn-api",
+        "--platform=managed",
+      ]
