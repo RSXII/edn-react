@@ -1,14 +1,29 @@
 steps:
-  - name: "gcr.io/cloud-builders/gcloud"
-    dir: "/edn-api"
-    args: ["builds", "submit", "--tag=gcr.io/$PROJECT_ID/edn-api"]
-  - name: "gcr.io/cloud-builders/gcloud"
-    dir: "/edn-api"
+  # Step to build the Docker image.
+  - name: "gcr.io/cloud-builders/docker"
     args:
-      [
-        "run",
-        "deploy",
-        "edn-api-service",
-        "--image=gcr.io/$PROJECT_ID/edn-api",
-        "--platform=managed",
-      ]
+      - "build"
+      - "--no-cache"
+      - "-t"
+      - "gcr.io/$PROJECT_ID/edn-api:$COMMIT_SHA"
+      - "."
+    dir: "edn-api"
+
+  # Step to push the image to Google Container Registry.
+  - name: "gcr.io/cloud-builders/docker"
+    args:
+      - "push"
+      - "gcr.io/$PROJECT_ID/edn-api:$COMMIT_SHA"
+
+  # Step to deploy the image to Cloud Run.
+  - name: "gcr.io/google.com/cloudsdktool/cloud-sdk"
+    entrypoint: "gcloud"
+    args:
+      - "run"
+      - "deploy"
+      - "edn-api-service"
+      - "--image=gcr.io/$PROJECT_ID/edn-api:$COMMIT_SHA"
+      - "--platform=managed"
+      - "--region=us-central1"
+images:
+  - "gcr.io/$PROJECT_ID/edn-api:$COMMIT_SHA"
