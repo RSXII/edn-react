@@ -1,7 +1,7 @@
 # Use the official Go image as the base image
 FROM golang:1.20
 
-# Set the working directory
+# Set the working directory to /edn-api
 WORKDIR /edn-api
 
 # Copy the entire project into the container
