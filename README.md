@@ -26,7 +26,7 @@ To set up the front end on your local machine:
 
 4. Start the development server with Vite:
 
-> npm start
+> npm run dev -- --open
 
 ## Back End API
 
