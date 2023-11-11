@@ -6,9 +6,14 @@ import {
   ImageStatementProps,
   ListStatementProps,
 } from "../components/statements/types";
-import { listStatementItems, imageStatementItems } from "../data/home.json";
+import { imageStatementItems } from "../data/home.json";
+import { useFetchData } from "../services/BackendService";
 
 export default function Home() {
+  const listStatementItems = useFetchData(
+    "https://edn-api-service-fcbclhpmia-uc.a.run.app/api/getAllListStatements"
+  );
+
   return (
     <div className="relative isolate px-6 pt-14 lg:px-8">
       <GradientBGTop />
