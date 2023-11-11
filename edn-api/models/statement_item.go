@@ -1,10 +1,5 @@
 package models
 
-import (
-	"encoding/json"
-	"errors"
-)
-
 type ListStatementItem struct {
 	Value string `json:"value"`
 }
@@ -23,11 +18,3 @@ type ImageStatementItem struct {
 	Body string `json:"body"`
 	ImageSrc string `json:"imageSrc"`
 }
-
-func (u * ListStatementItem) Scan(value interface{}) error {
-	b, ok := value.([]byte)
-	if !ok {
-	  return errors.New("type assertion to []byte failed")
-	}
-	return json.Unmarshal(b, &u)
-  }

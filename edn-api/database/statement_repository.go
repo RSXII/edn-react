@@ -132,3 +132,50 @@ func (r *StatementRepository) GetAllListStatements() ([]models.ListStatement, er
 	return listStatements, nil
 
 }
+
+func (r *StatementRepository) GetAllImageStatements() ([]models.ImageStatementItem, error) {
+	
+	queryString := `SELECT * FROM image_statements;`
+
+	stmt, err := r.DB.Prepare(queryString)
+
+	if err != nil {
+		fmt.Printf("Error: %v", err)
+	}
+
+	defer stmt.Close()
+
+	rows, err := stmt.Query()
+
+	if err != nil {
+		fmt.Printf("Error: %v", err)
+	}
+
+	defer rows.Close()
+
+	var imageStatementItems []models.ImageStatementItem
+
+	for rows.Next() {
+		var id int
+		var header string
+		var body string
+		var imageSrc string
+
+		err := rows.Scan(&id, &header, &body, &imageSrc)
+
+		if err != nil {
+			fmt.Printf("Error: %v", err)
+		}
+		fmt.Printf("Image Statement: %v", imageStatementItems)
+
+		imageStatementItems = append(imageStatementItems, models.ImageStatementItem{
+			Id: id,
+			Header: header,
+			Body: body,
+			ImageSrc: imageSrc,
+		})
+	}
+
+	return imageStatementItems, nil
+
+}
