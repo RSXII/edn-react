@@ -35,3 +35,17 @@ func GetAllListStatements(db *database.StatementRepository) gin.HandlerFunc {
 		c.JSON(200, listStatements)
 	}
 }
+
+func GetAllImageStatements(db *database.StatementRepository) gin.HandlerFunc {
+	
+	return func(c *gin.Context) {
+
+		listStatements, error := db.GetAllImageStatements()
+
+		if error != nil {
+			fmt.Printf("Error: %v", error)
+		}
+
+		c.JSON(200, listStatements)
+	}
+}
