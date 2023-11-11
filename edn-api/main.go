@@ -16,7 +16,7 @@ func main() {
     r := gin.Default()
 
     config := cors.DefaultConfig()
-    config.AllowOrigins = []string{"http://localhost:5173", "https://edn-react.vercel.app/"}
+    config.AllowOrigins = []string{"http://localhost:5173", "https://edn-react.vercel.app"}
     config.AllowMethods = []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"}
 
     r.Use(cors.New(config))
