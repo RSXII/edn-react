@@ -1,4 +1,4 @@
-import { ImageStatementProps } from "./types";
+import { ImageStatementProps } from "../../interfaces/shared/statements";
 
 export default function Statement({ props }: { props: ImageStatementProps }) {
   return (

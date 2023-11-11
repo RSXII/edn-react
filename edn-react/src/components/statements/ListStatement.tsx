@@ -1,4 +1,5 @@
-import { ListStatementProps } from "./types";
+import { ListStatementProps } from "../../interfaces/shared/statements";
+
 export default function ListStatement({
   props,
 }: {
