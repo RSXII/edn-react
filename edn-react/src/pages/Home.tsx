@@ -2,17 +2,22 @@ import { ButtonPrimary, ButtonSecondary } from "../components/button/index";
 import { GradientBGTop, GradientBGBottom } from "../components/gradient/index";
 import PlanServiceComponent from "../components/plans/ServiceComponent";
 import { ImageStatement, ListStatement } from "../components/statements/index";
+import useStatementsData from "../hooks/useStatementsData";
 import {
   ImageStatementProps,
   ListStatementProps,
-} from "../components/statements/types";
-import { imageStatementItems } from "../data/home.json";
-import { useFetchData } from "../services/BackendService";
+} from "../interfaces/shared/statements";
 
 export default function Home() {
-  const listStatementItems = useFetchData(
-    "https://edn-api-service-fcbclhpmia-uc.a.run.app/api/getAllListStatements"
-  );
+  const { listStatements, imageStatements, error } = useStatementsData();
+
+  if (listStatements.isLoading || imageStatements.isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
 
   return (
     <div className="relative isolate px-6 pt-14 lg:px-8">
@@ -57,12 +62,12 @@ export default function Home() {
           Make it stand out.
         </h2>
         <div className="flex flex-col md:flex-row justify-center mt-6 text-lg leading-8 text-gray-600">
-          {imageStatementItems.map((statement: ImageStatementProps) => (
+          {imageStatements.data.map((statement: ImageStatementProps) => (
             <ImageStatement key={statement.id} props={statement} />
           ))}
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 justify-center mt-6 text-lg leading-8 text-gray-600">
-          {listStatementItems.map((statement: ListStatementProps) => {
+          {listStatements.data.map((statement: ListStatementProps) => {
             return <ListStatement key={statement.id} props={statement} />;
           })}
         </div>
