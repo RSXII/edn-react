@@ -1,4 +1,4 @@
-package openAI
+package openai
 
 // Message represents a single message in the conversation.
 type Message struct {

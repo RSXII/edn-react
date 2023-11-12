@@ -2,7 +2,7 @@ package handlers
 
 import (
 	"ednAPI/config"
-	"ednAPI/services/openAI"
+	"ednAPI/services/openai"
 	"fmt"
 	"os"
 
@@ -16,13 +16,13 @@ func TestOpenAI() gin.HandlerFunc {
 	organization := os.Getenv("OPENAI_ORG")
 
 	config.LoadEnvironmentVariables()
-	client := openAI.NewClient(apiKey, organization)
+	client := openai.NewClient(apiKey, organization)
 	
 	return func(c *gin.Context) {
 
-	r := openAI.CreateCompletionsRequest{
+	r := openai.CreateCompletionsRequest{
 		Model: "gpt-3.5-turbo",
-		Messages: []openAI.Message{
+		Messages: []openai.Message{
 			{
 			Role:    "user",
 			Content: "Tell me a joke",
