@@ -35,7 +35,6 @@ func (r *StatementRepository) GetListStatementById(id string) (models.ListStatem
 
 	defer stmt.Close()
 
-
 	rows, err := stmt.Query(id)
 
 	if err != nil {
