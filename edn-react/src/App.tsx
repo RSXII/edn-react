@@ -1,6 +1,6 @@
 import { Route, Routes, BrowserRouter, useNavigate } from "react-router-dom";
 
-import { Home, About, Plans, Company, Profile } from "./pages";
+import { Home, About, Plans, Company, Profile, Chat } from "./pages";
 import HeaderComponent from "./components/HeaderComponent";
 import Authentication from "./pages/Authentication";
 import FooterComponent from "./components/navigation/FooterComponent";
@@ -24,6 +24,7 @@ function ClerkProviderWithRoutes() {
             <Route path="/about" element={<About />} />
             <Route path="/plans" element={<Plans />} />
             <Route path="/company" element={<Company />} />
+            <Route path="/chat" element={<Chat />} />
             <Route
               path="/profile"
               element={<PrivateRoute element={<Profile />} fallback="/" />}
