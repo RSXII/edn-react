@@ -1,7 +1,5 @@
-import ChatAssignment from "./chatTypes/ChatAssignment";
+import { ChatAssignment, ChatComment, ChatTags } from "./chatTypes";
 import { ActivityItem } from "./types/activityItem";
-import ChatComment from "./chatTypes/ChatComment";
-import ChatTags from "./chatTypes/ChatTags";
 import {
   isActivityItemAssignment,
   isActivityItemComment,
