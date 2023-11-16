@@ -2,12 +2,7 @@ import { ButtonPrimary, ButtonSecondary } from "../components/button/index";
 import { GradientBGTop, GradientBGBottom } from "../components/gradient/index";
 import { paragraphs } from "../data/about.json";
 
-import { useFetchData } from "../services/BackendService";
-
 export default function About() {
-  const { data, error } = useFetchData("http://localhost:8080/api/testOpenAI");
-  if (error) return <div>Error!</div>;
-
   return (
     <div className="relative isolate px-6 pt-14 lg:px-8">
       <GradientBGTop />

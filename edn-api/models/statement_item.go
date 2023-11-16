@@ -5,16 +5,16 @@ type ListStatementItem struct {
 }
 
 type ListStatement struct {
-	Id int `json:"id"`
-	Title string `json:"title"`
-	List []string `json:"list"`
-	CreatedAt string `json:"created_at"`
-	UpdatedAt string `json:"updated_at"`
+	Id        int      `json:"id"`
+	Title     string   `json:"title"`
+	List      []string `json:"list"`
+	CreatedAt string   `json:"created_at"`
+	UpdatedAt string   `json:"updated_at"`
 }
 
 type ImageStatementItem struct {
-	Id int `json:"id"`
-	Header string `json:"header"`
-	Body string `json:"body"`
+	Id       int    `json:"id"`
+	Header   string `json:"header"`
+	Body     string `json:"body"`
 	ImageSrc string `json:"imageSrc"`
 }

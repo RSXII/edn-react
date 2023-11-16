@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { useClerk } from "@clerk/clerk-react";
+import { useAuth } from "@clerk/clerk-react";
 
-export const useFetchData = (url: string) => {
-  const [data, setData] = useState([]);
+export const useFetchData = <T>(url: string) => {
+  const [data, setData] = useState<T | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
 
@@ -43,3 +44,15 @@ export const useFetchData = (url: string) => {
 
   return { data, isLoading, error };
 };
+
+export function useFetch(url: string) {
+  const { getToken } = useAuth();
+
+  const authenticatedFetch = async () => {
+    return fetch(url, {
+      headers: { Authorization: `Bearer ${await getToken()}` },
+    }).then((res) => res.json());
+  };
+
+  return authenticatedFetch;
+}

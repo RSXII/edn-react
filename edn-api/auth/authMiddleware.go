@@ -12,13 +12,12 @@ import (
 )
 
 func AuthenticateWithClerk() gin.HandlerFunc {
-    return func(c *gin.Context) {
-	authHeader := c.GetHeader("Authorization")
-	apiKey := os.Getenv("CLERK_API_KEY")
+	return func(c *gin.Context) {
+		authHeader := c.GetHeader("Authorization")
+		apiKey := os.Getenv("CLERK_API_KEY")
 
-
-	client, err := clerk.NewClient(apiKey)
-	if err != nil {
+		client, err := clerk.NewClient(apiKey)
+		if err != nil {
 			fmt.Println(err)
 			c.JSON(http.StatusInternalServerError, gin.H{"error": "internal server error"})
 			c.Abort()
