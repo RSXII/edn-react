@@ -2,13 +2,14 @@ import { GradientBGTop, GradientBGBottom } from "../components/gradient/index";
 import { ChatInputComponent, ChatOutputComponent } from "../components/chat";
 import { useAuthFetchData } from "../services/AuthFetch";
 import { CreateCompletionsResponse } from "../interfaces/openAI/interfaces";
+import { LoadingSpinner } from "../components/loading/LoadingSpinner";
 
 function renderElement(data: CreateCompletionsResponse | null) {
   if (data)
     return data?.choices.map((choices) => {
       return <div>{choices.message.content}</div>;
     });
-  return <div>Loading...</div>;
+  return <LoadingSpinner />;
 }
 
 export default function Chat() {

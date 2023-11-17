@@ -1,5 +1,6 @@
 import { ButtonPrimary, ButtonSecondary } from "../components/button/index";
 import { GradientBGTop, GradientBGBottom } from "../components/gradient/index";
+import { LoadingSpinner } from "../components/loading/LoadingSpinner";
 import PlanServiceComponent from "../components/plans/ServiceComponent";
 import { ImageStatement, ListStatement } from "../components/statements/index";
 import useStatementsData from "../hooks/useStatementsData";
@@ -12,7 +13,11 @@ export default function Home() {
   const { listStatements, imageStatements, error } = useStatementsData();
 
   if (listStatements.isLoading || imageStatements.isLoading) {
-    return <div>Loading...</div>;
+    return (
+      <div className="relative isolate px-6 pt-14 lg:px-8">
+        <LoadingSpinner />
+      </div>
+    );
   }
 
   if (error) {
