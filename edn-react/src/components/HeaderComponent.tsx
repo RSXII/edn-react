@@ -13,7 +13,7 @@ const navigation: Navigation[] = [
   { name: "About Us", href: "/about", protected: false },
   { name: "Plans", href: "/plans", protected: false },
   { name: "Company", href: "/company", protected: false },
-  { name: "Chat", href: "/chat", protected: false },
+  { name: "Chat", href: "/chat", protected: true },
   { name: "Profile", href: "/profile", protected: true },
 ];
 
