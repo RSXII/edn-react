@@ -13,14 +13,14 @@ var DB *sql.DB
 
 func InitDB() {
 
-    config.LoadEnvironmentVariables()
+	config.LoadEnvironmentVariables()
 
-    db, err := sql.Open("mysql", os.Getenv("DSN"))
+	db, err := sql.Open("mysql", os.Getenv("DSN"))
 
-    if err != nil {
-        
-        fmt.Printf("failed to connect: %v", err)
-    }
+	if err != nil {
 
-    DB = db
+		fmt.Printf("failed to connect: %v", err)
+	}
+
+	DB = db
 }

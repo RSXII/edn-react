@@ -23,7 +23,7 @@ func GetListStatementById(db *database.StatementRepository) gin.HandlerFunc {
 }
 
 func GetAllListStatements(db *database.StatementRepository) gin.HandlerFunc {
-	
+
 	return func(c *gin.Context) {
 
 		listStatements, error := db.GetAllListStatements()
@@ -37,7 +37,7 @@ func GetAllListStatements(db *database.StatementRepository) gin.HandlerFunc {
 }
 
 func GetAllImageStatements(db *database.StatementRepository) gin.HandlerFunc {
-	
+
 	return func(c *gin.Context) {
 
 		listStatements, error := db.GetAllImageStatements()

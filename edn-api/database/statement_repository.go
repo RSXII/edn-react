@@ -44,11 +44,11 @@ func (r *StatementRepository) GetListStatementById(id string) (models.ListStatem
 	defer rows.Close()
 
 	var listStatement models.ListStatement
-	
+
 	for rows.Next() {
 		var id int
-        var title string
-        var value sql.NullString
+		var title string
+		var value sql.NullString
 
 		err := rows.Scan(&id, &title, &value)
 
@@ -69,7 +69,7 @@ func (r *StatementRepository) GetListStatementById(id string) (models.ListStatem
 }
 
 func (r *StatementRepository) GetAllListStatements() ([]models.ListStatement, error) {
-	
+
 	queryString := `SELECT ls.id 
 	AS list_statements_id, ls.title, lsi.value 
 	FROM list_statements ls 
@@ -92,7 +92,7 @@ func (r *StatementRepository) GetAllListStatements() ([]models.ListStatement, er
 
 	defer rows.Close()
 
-	var listStatementMap =  make(map[int]models.ListStatement)
+	var listStatementMap = make(map[int]models.ListStatement)
 
 	for rows.Next() {
 		var id int
@@ -109,7 +109,7 @@ func (r *StatementRepository) GetAllListStatements() ([]models.ListStatement, er
 
 		if !ok {
 			listStatement = models.ListStatement{
-				Id: id,
+				Id:    id,
 				Title: title,
 			}
 		}
@@ -133,7 +133,7 @@ func (r *StatementRepository) GetAllListStatements() ([]models.ListStatement, er
 }
 
 func (r *StatementRepository) GetAllImageStatements() ([]models.ImageStatementItem, error) {
-	
+
 	queryString := `SELECT * FROM image_statements;`
 
 	stmt, err := r.DB.Prepare(queryString)
@@ -168,9 +168,9 @@ func (r *StatementRepository) GetAllImageStatements() ([]models.ImageStatementIt
 		fmt.Printf("Image Statement: %v", imageStatementItems)
 
 		imageStatementItems = append(imageStatementItems, models.ImageStatementItem{
-			Id: id,
-			Header: header,
-			Body: body,
+			Id:       id,
+			Header:   header,
+			Body:     body,
 			ImageSrc: imageSrc,
 		})
 	}

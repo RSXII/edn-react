@@ -1,6 +1,7 @@
 package routes
 
 import (
+	"ednAPI/auth"
 	"ednAPI/database"
 	"ednAPI/handlers"
 
@@ -9,11 +10,15 @@ import (
 
 func InitializeRoutes(r *gin.Engine, db *database.StatementRepository) {
 
-	api := r.Group("/api") 
+	api := r.Group("/api")
 	{
 		api.GET("/getListStatement/:id", handlers.GetListStatementById(db))
 		api.GET("/getAllListStatements", handlers.GetAllListStatements(db))
 		api.GET("/getAllImageStatements", handlers.GetAllImageStatements(db))
-		api.GET("/testOpenAI", handlers.TestOpenAI())
+
+	}
+	protected := r.Group("/api", auth.AuthenticateWithClerk())
+	{
+		protected.GET("/testOpenAI", handlers.TestOpenAI())
 	}
 }
