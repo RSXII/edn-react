@@ -4,6 +4,7 @@
     { "src": "/about", "dest": "/" },
     { "src": "/plans", "dest": "/" },
     { "src": "/company", "dest": "/" },
-    { "src": "/profile", "dest": "/" }
+    { "src": "/profile", "dest": "/" },
+    { "src": "/chat", "dest": "/" }
   ]
 }
