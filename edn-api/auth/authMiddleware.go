@@ -7,16 +7,15 @@ import (
 	"strings"
 
 	"github.com/clerkinc/clerk-sdk-go/clerk"
-
 	"github.com/gin-gonic/gin"
 )
 
 func AuthenticateWithClerk() gin.HandlerFunc {
+	apiKey := os.Getenv("CLERK_SECRET_KEY")
+	client, err := clerk.NewClient(apiKey)
+
 	return func(c *gin.Context) {
 		authHeader := c.GetHeader("Authorization")
-		apiKey := os.Getenv("CLERK_API_KEY")
-
-		client, err := clerk.NewClient(apiKey)
 		if err != nil {
 			fmt.Println(err)
 			c.JSON(http.StatusInternalServerError, gin.H{"error": "internal server error"})
@@ -26,19 +25,15 @@ func AuthenticateWithClerk() gin.HandlerFunc {
 
 		// Splitting the header to extract the session ID and token
 		parts := strings.Split(authHeader, " ")
-		if len(parts) != 3 || parts[0] != "Bearer" {
+		if len(parts) != 2 || parts[0] != "Bearer" {
 			c.JSON(http.StatusUnauthorized, gin.H{"error": "invalid authorization header format"})
 			c.Abort()
 			return
 		}
 
-		sessionID := parts[1]
-		bearerToken := parts[2]
+		bearerToken := parts[1]
 
-		fmt.Println(sessionID)
-		fmt.Println(bearerToken)
-
-		session, err := client.Sessions().Verify(sessionID, bearerToken)
+		session, err := client.VerifyToken(bearerToken)
 		if err != nil {
 			c.JSON(http.StatusUnauthorized, gin.H{"error": "unauthorized"})
 			c.Abort()

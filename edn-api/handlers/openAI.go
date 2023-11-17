@@ -37,9 +37,6 @@ func TestOpenAI() gin.HandlerFunc {
 			fmt.Print(err)
 		}
 
-		fmt.Println(completions)
-		fmt.Println("DONE")
-
 		c.JSON(200, completions)
 	}
 }

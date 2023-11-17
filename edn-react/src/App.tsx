@@ -24,7 +24,10 @@ function ClerkProviderWithRoutes() {
             <Route path="/about" element={<About />} />
             <Route path="/plans" element={<Plans />} />
             <Route path="/company" element={<Company />} />
-            <Route path="/chat" element={<Chat />} />
+            <Route
+              path="/chat"
+              element={<PrivateRoute element={<Chat />} fallback="/" />}
+            />
             <Route
               path="/profile"
               element={<PrivateRoute element={<Profile />} fallback="/" />}

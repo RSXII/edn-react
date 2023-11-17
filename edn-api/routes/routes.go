@@ -17,7 +17,6 @@ func InitializeRoutes(r *gin.Engine, db *database.StatementRepository) {
 		api.GET("/getAllImageStatements", handlers.GetAllImageStatements(db))
 
 	}
-
 	protected := r.Group("/api", auth.AuthenticateWithClerk())
 	{
 		protected.GET("/testOpenAI", handlers.TestOpenAI())
