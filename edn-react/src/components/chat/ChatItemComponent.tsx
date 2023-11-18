@@ -1,15 +1,15 @@
 import { ChatAssignment, ChatComment, ChatTags } from "./chatTypes";
 import { ActivityItem } from "./types/activityItem";
 import {
+  isActivityCompletionChat,
   isActivityItemAssignment,
   isActivityItemComment,
   isActivityItemTags,
 } from "./chatTypes/typeguards";
+import ChatCompletion from "./chatTypes/ChatCompletion";
 
-import { data } from "../../data/activitySamples.json";
-
-export default function ChatItemComponent() {
-  const activityItems: ActivityItem[] = data as ActivityItem[];
+export default function ChatItemComponent({ data }: { data: ActivityItem[] }) {
+  const activityItems: ActivityItem[] = data;
 
   return (
     <div className="flow-root">
@@ -31,6 +31,8 @@ export default function ChatItemComponent() {
                     <ChatAssignment activityAssignmentItem={activityItem} />
                   ) : isActivityItemTags(activityItem) ? (
                     <ChatTags activityTagsItem={activityItem} />
+                  ) : isActivityCompletionChat(activityItem) ? (
+                    <ChatCompletion activityItemCopletion={activityItem} />
                   ) : null}
                 </div>
               </div>
