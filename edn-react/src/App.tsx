@@ -6,7 +6,7 @@ import Authentication from "./pages/Authentication";
 import FooterComponent from "./components/navigation/FooterComponent";
 import { clerkPubKey } from "./config";
 import { ClerkProvider, SignUp } from "@clerk/clerk-react";
-import PrivateRoute from "./components/authentication/PrivateRoute";
+import PrivateRoute from "./features/authentication/PrivateRoute";
 
 function ClerkProviderWithRoutes() {
   const navigate = useNavigate();
