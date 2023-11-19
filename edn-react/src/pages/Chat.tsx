@@ -1,9 +1,9 @@
 import { GradientBGTop, GradientBGBottom } from "../components/gradient/index";
-import { ChatInputComponent, ChatOutputComponent } from "../components/chat";
+import { ChatInputComponent, ChatOutputComponent } from "../features/chat";
 import { useAuthFetchData } from "../services/AuthFetch";
 import { CreateCompletionsResponse } from "../interfaces/openAI/interfaces";
 import { messages } from "../services/ChatService";
-import { ActivityItem } from "../components/chat/types/activityItem";
+import { ActivityItem } from "../features/chat/types/activityItem";
 
 function createMessage(response: CreateCompletionsResponse | null) {
   if (response) {
