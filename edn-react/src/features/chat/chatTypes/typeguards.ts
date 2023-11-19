@@ -25,7 +25,7 @@ function isActivityItemComment(
 function isActivityCompletionChat(
   item: ActivityItem
 ): item is ActivityItemCompletionChat {
-  return "completion" in item;
+  return "response" in item;
 }
 
 export {
