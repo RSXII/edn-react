@@ -24,7 +24,7 @@ function ChatService(authToken: Promise<string | null>) {
       if (!data) return;
 
       const message = {
-        id: Number(data?.id),
+        id: 1,
         type: "completionChat",
         user: {
           name: "OpenAI",
@@ -42,7 +42,8 @@ function ChatService(authToken: Promise<string | null>) {
         },
       } as ActivityItemCompletionChat;
 
-      messages.value.push(message);
+      messages.value = [...messages.value, message];
+      // messages.value.push(message);
     } catch (error) {
       console.error("Error sending message:", error);
     }

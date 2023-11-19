@@ -9,6 +9,7 @@ import {
 import ChatCompletion from "./chatTypes/ChatCompletion";
 
 export default function ChatItemComponent({ data }: { data: ActivityItem[] }) {
+  console.log(data);
   return (
     <div className="flow-root">
       <ul role="list" className="-mb-8">
