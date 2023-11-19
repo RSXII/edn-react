@@ -2,6 +2,7 @@ import {
   ActivityItem,
   ActivityItemAssignment,
   ActivityItemComment,
+  ActivityItemCompletionChat,
   ActivityItemTags,
 } from "../types/activityItem";
 
@@ -21,4 +22,15 @@ function isActivityItemComment(
   return "imageUrl" in item && "comment" in item;
 }
 
-export { isActivityItemAssignment, isActivityItemTags, isActivityItemComment };
+function isActivityCompletionChat(
+  item: ActivityItem
+): item is ActivityItemCompletionChat {
+  return "completion" in item;
+}
+
+export {
+  isActivityItemAssignment,
+  isActivityItemTags,
+  isActivityItemComment,
+  isActivityCompletionChat,
+};

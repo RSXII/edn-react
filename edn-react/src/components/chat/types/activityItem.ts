@@ -1,7 +1,10 @@
+import { CreateCompletionsResponse } from "../../../interfaces/openAI/interfaces";
+
 enum ActivityType {
   Comment = "comment",
   Assignment = "assignment",
   Tags = "tags",
+  CompletionChat = "completionChat",
 }
 interface ChatUserInfo {
   name: string;
@@ -31,4 +34,7 @@ export interface ActivityItemTags extends ActivityItem {
 export interface ActivityItemComment extends ActivityItem {
   imageUrl: string;
   comment: string;
+}
+export interface ActivityItemCompletionChat extends ActivityItem {
+  response: CreateCompletionsResponse;
 }
