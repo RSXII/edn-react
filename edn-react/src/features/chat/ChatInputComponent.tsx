@@ -1,8 +1,31 @@
-export default function ChatInputComponent() {
+import { SetStateAction, useState } from "react";
+
+export default function ChatInputComponent({
+  onSendMessage,
+}: {
+  onSendMessage: (message: string) => void;
+}) {
+  const [message, setMessage] = useState("");
+
+  const handleSendMessage = (event: { preventDefault: () => void }) => {
+    event.preventDefault();
+    if (!message) return;
+    if (message.trim()) {
+      onSendMessage(message);
+      setMessage("");
+    }
+  };
+
+  const handleChange = (event: {
+    target: { value: SetStateAction<string> };
+  }) => {
+    setMessage(event.target.value);
+  };
+
   return (
     <div className="flex items-start space-x-4">
       <div className="min-w-0 flex-1">
-        <form action="#" className="relative">
+        <form action="#" className="relative" onSubmit={handleSendMessage}>
           <div className="overflow-hidden rounded-lg shadow-sm ring-1 ring-inset ring-buttonPrimary focus-within:ring-2 focus-within:ring-buttonHover">
             <label htmlFor="comment" className="sr-only">
               As a question
@@ -11,6 +34,7 @@ export default function ChatInputComponent() {
               rows={3}
               name="comment"
               id="comment"
+              onChange={handleChange}
               className="block w-full resize-none border-0 bg-transparent py-1.5 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
               placeholder="Ask a question"
               defaultValue={""}
