@@ -20,5 +20,6 @@ func InitializeRoutes(r *gin.Engine, db *database.StatementRepository) {
 	protected := r.Group("/api", auth.AuthenticateWithClerk())
 	{
 		protected.GET("/testOpenAI", handlers.TestOpenAI())
+		protected.POST("/requestCompletion", handlers.CompletionRequest())
 	}
 }
