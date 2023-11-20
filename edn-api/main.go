@@ -1,6 +1,7 @@
 package main
 
 import (
+	"ednAPI/config"
 	"ednAPI/database"
 	"ednAPI/routes"
 
@@ -10,6 +11,7 @@ import (
 )
 
 func main() {
+	config.LoadEnvironmentVariables()
 
 	database.InitDB()
 

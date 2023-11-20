@@ -16,34 +16,27 @@ function ChatService(authToken: Promise<string | null>) {
     if (!token) return;
     try {
       const data = await authFetch(
-        "http://localhost:8080/api/testOpenAI",
-        token
+        "http://localhost:8080/api/requestCompletion",
+        token,
+        "POST",
+        { message: messageText }
       );
-      console.log(messageText, data);
 
       if (!data) return;
 
-      const message = {
-        id: 1,
-        type: "completionChat",
+      const message: ActivityItemCompletionChat = {
+        id: data.id,
+        type: "completionChat" as ActivityItem["type"],
         user: {
-          name: "OpenAI",
-          href: "https://openai.com/",
+          name: "GPT-3",
+          href: "https://openai.com",
         },
         date: new Date().toISOString(),
-        response: {
-          id: data?.id,
-          object: data?.object,
-          created: data?.created,
-          model: data?.model,
-          choices: data?.choices,
-          usage: data?.usage,
-          error: data?.error,
-        },
-      } as ActivityItemCompletionChat;
+        response: data,
+      };
 
       messages.value = [...messages.value, message];
-      // messages.value.push(message);
+      // messages.value.push(data);
     } catch (error) {
       console.error("Error sending message:", error);
     }
