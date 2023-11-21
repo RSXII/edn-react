@@ -1,12 +1,12 @@
-import { ChatAssignment, ChatComment, ChatTags } from "./chatTypes";
-import { ActivityItem } from "./types/activityItem";
+import { ChatAssignment, ChatComment, ChatTags } from "../chatTypes";
+import { ActivityItem } from "../types/activityItem";
 import {
   isActivityCompletionChat,
   isActivityItemAssignment,
   isActivityItemComment,
   isActivityItemTags,
-} from "./chatTypes/typeguards";
-import ChatCompletion from "./chatTypes/ChatCompletion";
+} from "../chatTypes/typeguards";
+import ChatCompletion from "../chatTypes/ChatCompletion";
 
 export default function ChatItemComponent({ data }: { data: ActivityItem[] }) {
   return (
