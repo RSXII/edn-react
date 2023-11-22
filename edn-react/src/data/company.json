@@ -1,0 +1,19 @@
+{
+  "company": [
+    {
+      "name": "Carl Munden",
+      "title": "CEO and Founder",
+      "bio": "As the CEO and founder of EDN Yards, Carl Munden is the visionary behind our company. With a deep passion for beautiful landscaping and a mission to empower homeowners to take control of their properties, Carl established EDN Yards to bring his vision to life."
+    },
+    {
+      "name": "Schuyler Munden",
+      "title": "Lead Landscape Designer",
+      "bio": "Schuyler Munden is our Lead Landscape Designer, bringing an unmatched level of creativity and expertise to every project. His love for landscaping and extensive knowledge of the field make him an integral part of the EDN Yards team, ensuring that our clients' outdoor spaces are transformed into works of art."
+    },
+    {
+      "name": "Ryan Schultz",
+      "title": "Lead Engineer",
+      "bio": " Ryan Schultz, our Lead Engineer, combines his passion for technology with a homeowner's perspective to drive innovation at EDN Yards. With a focus on providing cutting-edge tools and tech solutions, Ryan ensures that our clients have access to the best resources to make their landscaping journey easier and more enjoyable."
+    }
+  ]
+}
