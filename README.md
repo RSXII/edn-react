@@ -1,4 +1,4 @@
-### Current Build: https://edn-react.vercel.app/
+### https://ednyards.io/
 
 # EDN Yards
 
