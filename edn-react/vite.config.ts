@@ -8,5 +8,6 @@ export default defineConfig({
     "process.env": process.env,
     VITE_REACT_APP_CLERK_PUBLISHABLE_KEY:
       process.env.VITE_REACT_APP_CLERK_PUBLISHABLE_KEY,
+    VITE_EDN_API_ENDPOINT: process.env.VITE_EDN_API_ENDPOINT,
   },
 });
