@@ -6,6 +6,7 @@ import {
 } from "../types/activityItem";
 import { useEffect } from "react";
 import { authFetch } from "../../../services/authFetch";
+import { ednAPIEndpoint } from "../../../config";
 
 export const messages = signal([] as ActivityItem[]);
 export const isLoading = signal(false);
@@ -34,10 +35,12 @@ function ChatService(authToken: Promise<string | null>) {
     messages.value.push(AddMessage(messageText));
     try {
       const data = await authFetch(
-        "http://localhost:8080/api/requestCompletion",
+        `${ednAPIEndpoint}api/requestCompletion`,
         token,
         "POST",
-        { message: messageText }
+        {
+          message: messageText,
+        }
       );
 
       if (!data) return;
