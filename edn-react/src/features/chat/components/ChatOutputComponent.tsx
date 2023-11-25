@@ -9,7 +9,7 @@ export default function ChatOutputComponent({
   messages: ActivityItem[];
 }) {
   return (
-    <div className="overflow-scroll shadow sm:rounded-lg h-64">
+    <div className="overflow-scroll shadow sm:rounded-lg h-64 col-span-4">
       <div className="px-4 py-5 sm:p-6">
         <ChatItemComponent data={messages} />
         <div className="pt-10">
